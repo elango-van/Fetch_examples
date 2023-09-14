@@ -115,3 +115,17 @@ fetch('https://reqres.in/invalid-url')
         element.parentElement.innerHTML = `Error: ${error}`;
         console.error('There was an error!', error);
     });
+
+//********************************
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    // Use the data as needed
+  } catch (error) {
+    console.error(error);
+  }
+}
